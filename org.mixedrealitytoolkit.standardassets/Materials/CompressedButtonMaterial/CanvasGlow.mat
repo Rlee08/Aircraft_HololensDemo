@@ -9,15 +9,19 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: CanvasGlow
   m_Shader: {fileID: 4800000, guid: 5b0fc3431208c9e48b6e5efc383317ed, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _UI_CLIP_RECT_ROUNDED
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _RELATIVE_TO_HEIGHT__ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -27,7 +31,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Bevel_Radius_: 12
+    - _Bevel_Radius_: 10
     - _Bias_: 0.5
     - _Blend_Exponent_: 1
     - _DstBlend: 1
@@ -39,7 +43,7 @@ Material:
     - _Motion_: 0
     - _Outer_Fuzz_End_: 2.95
     - _Outer_Fuzz_Start_: 3.27
-    - _Relative_To_Height_: 0
+    - _Relative_To_Height_: 1
     - _SrcBlend: 1
     - _StencilComparison: 0
     - _StencilOperation: 0
@@ -49,6 +53,6 @@ Material:
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _ClipRectRadii: {r: 10, g: 10, b: 10, a: 10}
-    - _Color_: {r: 0.58825207, g: 0.62312603, b: 0.65800005, a: 1}
+    - _Color_: {r: 0.65882355, g: 0.59945816, b: 0.5882353, a: 1}
     - _Inner_Color_: {r: 0.007999993, g: 0.404, b: 0.8, a: 1}
   m_BuildTextureStacks: []
