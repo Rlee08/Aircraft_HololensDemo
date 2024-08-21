@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MRTKWinDictationConfig
   m_EditorClassIdentifier: 
   <InitialSilenceTimeoutSeconds>k__BackingField: 5
-  <AutoSilenceTimeout>k__BackingField: 20
-  confidenceLevel: 1
+  <AutoSilenceTimeout>k__BackingField: 5
+  confidenceLevel: 0
