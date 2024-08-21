@@ -10,19 +10,27 @@ public class UIStateManager : MonoBehaviour
     private GameObject expandButtons;
     private GameObject transcriptionDialogue;
 
-    public DictationHandler dictationHandler;
+    public DictationHandler trasncriberDictationHandler;
+
+    // public GameObject transcriptionDialogue;
     
     // Start is called before the first frame update
     void Start()
     {
+
+    }
+
+    void Awake()
+    {
         mainMessageScreen = GameObject.Find("MainPanelHolster");
         cameraScreen = GameObject.Find("CameraButtonCanvas");
         expandButtons = GameObject.Find("AddButtons");
-
+        transcriptionDialogue = GameObject.Find("TranscriptionDialogue"); 
+        
+        expandButtons.SetActive(false);
+        transcriptionDialogue.SetActive(false);
         mainMessageScreen.SetActive(false);
         cameraScreen.SetActive(false);
-        expandButtons.SetActive(false);
-        // transcriptionDialogue.SetActive(false);
     }
 
     public void assessDamage()
@@ -32,6 +40,6 @@ public class UIStateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
