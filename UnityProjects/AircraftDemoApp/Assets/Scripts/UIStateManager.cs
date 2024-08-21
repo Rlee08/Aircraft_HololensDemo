@@ -23,12 +23,12 @@ public class UIStateManager : MonoBehaviour
     void Awake()
     {
         mainMessageScreen = GameObject.Find("MainMessagingScreen");
-        cameraScreen = GameObject.Find("CameraScreen");
+        cameraScreen = GameObject.Find("AutoCameraScreen");
         expandButtons = GameObject.Find("AddButtons");
-        transcriptionDialogue = GameObject.Find("TranscriptionDialogue"); 
+        // transcriptionDialogue = GameObject.Find("TranscriptionDialogue"); 
         
         expandButtons.SetActive(false);
-        transcriptionDialogue.SetActive(false);
+        // transcriptionDialogue.SetActive(false);
         mainMessageScreen.SetActive(false);
         cameraScreen.SetActive(false);
     }

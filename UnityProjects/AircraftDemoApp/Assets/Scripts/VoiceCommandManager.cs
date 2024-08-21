@@ -8,6 +8,8 @@ public class VoiceCommandManager : MonoBehaviour
 {
     [SerializeField] DictationHandler transcriberDictationHandler;
     [SerializeField] private GameObject transcriptionDialogue;
+    [SerializeField] private GameObject autoCameraScreen;
+    private bool isListening = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,11 +26,20 @@ public class VoiceCommandManager : MonoBehaviour
     public void startListening()
     {
         Debug.Log("Keyword Detected: wingman");
-        transcriberDictationHandler.StartRecognition();
-        transcriptionDialogue.SetActive(true);
+        isListening = true;
+        // transcriberDictationHandler.StartRecognition();
+        // transcriptionDialogue.SetActive(true);
     }
     public void assessDamage()
     {
-        Debug.Log("Keyword Detected: assess damage");
+        if (isListening == true)
+        {
+            Debug.Log("Keyword Detected: assess damage");
+            autoCameraScreen.SetActive(true);
+        }
+        else
+        {
+           Debug.Log("not listening"); 
+        }
     }
 }

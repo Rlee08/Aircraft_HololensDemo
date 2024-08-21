@@ -58,16 +58,16 @@ namespace MixedReality.Toolkit.Examples.Demos
             Debug.Log("Recgonition Started");
             
             // Make sure there isn't an ongoing recognition session
-            StopRecognition();
+            // StopRecognition();
 
             dictationSubsystem = XRSubsystemHelpers.DictationSubsystem;
             if (dictationSubsystem != null)
             {
-                keywordRecognitionSubsystem = XRSubsystemHelpers.KeywordRecognitionSubsystem;
-                if (keywordRecognitionSubsystem != null)
-                {
-                    keywordRecognitionSubsystem.Stop();
-                }
+                // keywordRecognitionSubsystem = XRSubsystemHelpers.KeywordRecognitionSubsystem;
+                // if (keywordRecognitionSubsystem != null)
+                // {
+                //     keywordRecognitionSubsystem.Stop();
+                // }
 
                 dictationSubsystem.Recognizing += DictationSubsystem_Recognizing;
                 dictationSubsystem.Recognized += DictationSubsystem_Recognized;
