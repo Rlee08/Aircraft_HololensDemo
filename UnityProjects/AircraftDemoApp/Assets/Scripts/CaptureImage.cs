@@ -36,6 +36,8 @@ public class CaptureImage : MonoBehaviour
         scale.x = scale.y * aspectRatio;
         preview.transform.localScale = scale;
     }
+
+    
     
     // Update is called once per frame
     void Update()
