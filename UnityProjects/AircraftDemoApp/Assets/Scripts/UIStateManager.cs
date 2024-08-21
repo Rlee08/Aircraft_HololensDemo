@@ -9,10 +9,8 @@ public class UIStateManager : MonoBehaviour
     private GameObject cameraScreen;
     private GameObject expandButtons;
     private GameObject transcriptionDialogue;
+    public DictationHandler transcriberDictationHandler;
 
-    public DictationHandler trasncriberDictationHandler;
-
-    // public GameObject transcriptionDialogue;
     
     // Start is called before the first frame update
     void Start()
@@ -37,9 +35,24 @@ public class UIStateManager : MonoBehaviour
     {
 
     }
+
+    private void closeTranscriberDialogueAction()
+    {
+        transcriptionDialogue.SetActive(false);
+    }
+
+    public void closeTranscriberDialogue()
+    {
+        Debug.Log("Recording Stopped");
+        Invoke("closeTranscriberDialogueAction", 10);
+    }
+
     // Update is called once per frame
     void Update()
     {
-
+        // if (transcriberDictationHandler.dictationSubsystem != null)
+        // {
+        //     dictationSubsystem.StopDictation();
+        // }
     }
 }

@@ -55,6 +55,8 @@ namespace MixedReality.Toolkit.Examples.Demos
         /// </summary>
         public void StartRecognition()
         {
+            Debug.Log("Recgonition Started");
+            
             // Make sure there isn't an ongoing recognition session
             StopRecognition();
 
