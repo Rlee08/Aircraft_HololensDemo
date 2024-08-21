@@ -15,7 +15,7 @@ namespace MixedReality.Toolkit.Examples.Demos
     /// events fired by <see cref="DictationSubsystem"/>.
     /// </summary>
     [AddComponentMenu("MRTK/Examples/Dictation Handler")]
-    public class DictationHandler : MonoBehaviour
+    public class TranscriberDictationHandler : MonoBehaviour
     {
         /// <summary>
         /// Wrapper of UnityEvent&lt;string&gt; for serialization.
