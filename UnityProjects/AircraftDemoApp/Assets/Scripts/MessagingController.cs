@@ -1,6 +1,9 @@
+using MixedReality.Toolkit.Examples.Demos;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+// using System.Diagnostics;
+
 // using System.Numerics;
 using TMPro;
 using UnityEditor;
@@ -13,17 +16,26 @@ public class MessagingController : MonoBehaviour
     [SerializeField] GameObject messagesContainer;
     public int userMessageCount;
     private GameObject messageRightClone;
+    private GameObject currentMessageRightClone;
 
-    // Makes a new speech bubble for every new recording
+    // Instantiates a new speech bubble for every new recording
     public void MakeNewMessage()
     {
         userMessageCount ++ ;
         messageRightClone = Instantiate(messageRightPrefab);
         messageRightClone.transform.SetParent(messagesContainer.transform, false);
-        // messageRightClone.transform.position = new Vector3(0,0,0);
-        // messageRightClone.transform.localScale = new Vector3(1,1,1);
         messageRightClone.name = "MessageRight" + userMessageCount;
         StartCoroutine(UpdateLayoutGroup(messageRightClone));
+    }
+
+    // Calls DictationHandler and starts recognition for this unique Instantiate
+    public void RecordNewMessage()
+    {
+        currentMessageRightClone = GameObject.Find("MessageRight" + userMessageCount);
+        // Debug.Log("found " + currentMessageRightClone);
+
+        currentMessageRightClone.GetComponent<DictationHandler>().StartRecognition();
+        // Debug.Log("recognition should start for " + currentMessageRightClone);
     }
 
     // Forces the layout group to update to fix the formatting
