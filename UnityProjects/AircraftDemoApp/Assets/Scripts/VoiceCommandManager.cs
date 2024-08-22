@@ -11,6 +11,9 @@ public class VoiceCommandManager : MonoBehaviour
     [SerializeField] private GameObject autoCameraScreen;
 
     [SerializeField] private GameObject addButtons;
+
+    [SerializeField] private GameObject mainMessenger;
+    [SerializeField] private GameObject handMenu;
     private bool isListening = false;
 
     // Start is called before the first frame update
@@ -29,9 +32,21 @@ public class VoiceCommandManager : MonoBehaviour
     {
         Debug.Log("Keyword Detected: wingman");
         isListening = true;
+        StartCoroutine (StopListening());
         // transcriberDictationHandler.StartRecognition();
         // transcriptionDialogue.SetActive(true);
     }
+
+    private IEnumerator StopListening()
+    {
+        if (isListening == true)
+        {
+            yield return new WaitForSeconds(20);
+            isListening = false;
+            Debug.Log("listening stopped");
+        }
+    }
+
     public void assessDamage()
     {
         if (isListening == true)
@@ -53,4 +68,15 @@ public class VoiceCommandManager : MonoBehaviour
             addButtons.SetActive(true);
         }
     }
+
+    public void openMainMessenger()
+    {
+        if (isListening == true)
+        {
+            Debug.Log("Wingman active, opening messaging screen");
+            mainMessenger.SetActive(true);
+            handMenu.SetActive(false);
+        }
+    }
+
 }

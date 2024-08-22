@@ -1250,7 +1250,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 662437336}
         m_TargetAssemblyTypeName: MixedReality.Toolkit.Examples.Demos.DictationHandler,
           Assembly-CSharp
@@ -1263,7 +1263,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
+        m_CallState: 0
   <OnEnabled>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
@@ -1312,6 +1312,98 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!1 &80424222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 80424223}
+  - component: {fileID: 80424225}
+  - component: {fileID: 80424224}
+  - component: {fileID: 80424227}
+  m_Layer: 0
+  m_Name: MessagingBoundsControl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &80424223
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80424222}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 925874395}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0.46, y: 0.26}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &80424224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80424222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 1
+--- !u!223 &80424225
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80424222}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 30
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!222 &80424227
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80424222}
+  m_CullTransparentMesh: 1
 --- !u!1 &89662795
 GameObject:
   m_ObjectHideFlags: 0
@@ -10410,10 +10502,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boundsVisualsPrefab: {fileID: 5671351296789090341, guid: 7b542306e34a62f4c9a822fcb19b7d99, type: 3}
-  boundsCalculationMethod: 0
+  boundsCalculationMethod: 3
   includeInactiveObjects: 0
-  overrideBounds: 0
-  boundsOverride: {fileID: 0}
+  overrideBounds: 1
+  boundsOverride: {fileID: 80424223}
   flattenMode: 2
   boundsPadding: 0.01
   interactable: {fileID: 0}
@@ -11003,7 +11095,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &791348057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11016,8 +11108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1309a81cd618fe44a501c43ee0b93d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dictatedMessage: {fileID: 1452042322}
-  textMessage: 
 --- !u!4 &791348058
 Transform:
   m_ObjectHideFlags: 0
@@ -12302,7 +12392,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 331.49}
+  m_SizeDelta: {x: 0, y: 332.7}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &883306376
 MonoBehaviour:
@@ -12515,6 +12605,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 80424223}
   - {fileID: 767915909}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17142,6 +17233,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1859984373}
         m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
         m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 791348057}
+        m_TargetAssemblyTypeName: MessagingController, Assembly-CSharp
+        m_MethodName: DictationResult
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26090,11 +26193,23 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 545751274}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 0
+      - m_Target: {fileID: 2092153907}
+        m_TargetAssemblyTypeName: VoiceCommandManager, Assembly-CSharp
+        m_MethodName: startListening
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -30547,6 +30662,8 @@ MonoBehaviour:
   transcriptionDialogue: {fileID: 545751274}
   autoCameraScreen: {fileID: 1082968221}
   addButtons: {fileID: 692041415}
+  mainMessenger: {fileID: 925874394}
+  handMenu: {fileID: 7020600565697351178}
 --- !u!4 &2092153908
 Transform:
   m_ObjectHideFlags: 0
@@ -30614,6 +30731,22 @@ MonoBehaviour:
         - m_Target: {fileID: 2092153907}
           m_TargetAssemblyTypeName: VoiceCommandManager, Assembly-CSharp
           m_MethodName: expandMenu
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - Keyword: open wingman chat
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2092153907}
+          m_TargetAssemblyTypeName: VoiceCommandManager, Assembly-CSharp
+          m_MethodName: openMainMessenger
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
