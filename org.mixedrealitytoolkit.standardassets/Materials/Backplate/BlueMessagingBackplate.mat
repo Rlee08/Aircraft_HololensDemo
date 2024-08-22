@@ -51,12 +51,12 @@ Material:
     - _Edge_Width_: 0.5
     - _Fade_Out_: 1
     - _Filter_Width_: 1
-    - _Frequency_: 0.96
+    - _Frequency_: 0
     - _Gradient_Disabled_: 1
     - _Gradient_Enable_: 0
     - _GridScale: 0.02
     - _Highlight_: 0
-    - _Highlight_Width_: 0.25
+    - _Highlight_Width_: 0
     - _Iridescence_Edge_Intensity_: 0
     - _Iridescence_Enable_: 0
     - _Iridescence_Intensity_: 0

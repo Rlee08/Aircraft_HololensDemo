@@ -9,6 +9,8 @@ public class VoiceCommandManager : MonoBehaviour
     [SerializeField] DictationHandler transcriberDictationHandler;
     [SerializeField] private GameObject transcriptionDialogue;
     [SerializeField] private GameObject autoCameraScreen;
+
+    [SerializeField] private GameObject addButtons;
     private bool isListening = false;
 
     // Start is called before the first frame update
@@ -40,6 +42,15 @@ public class VoiceCommandManager : MonoBehaviour
         else
         {
            Debug.Log("not listening"); 
+        }
+    }
+
+    public void expandMenu()
+    {
+        if (isListening == true)
+        {
+            Debug.Log("Keyword Detected: expand hand menu");
+            addButtons.SetActive(true);
         }
     }
 }
