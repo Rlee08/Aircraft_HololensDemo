@@ -11,8 +11,29 @@ public class UIStateManager : MonoBehaviour
     private GameObject cameraScreen;
     private GameObject expandButtons;
     private GameObject transcriptionDialogue;
-    public DictationHandler transcriberDictationHandler;
 
+    [SerializeField] GameObject voiceButton;
+    [SerializeField] GameObject listeningButton;
+
+    // public DictationHandler transcriberDictationHandler;
+
+    
+    public void SwitchToListening()
+    {
+        voiceButton.SetActive(false);
+        listeningButton.SetActive(true);
+    }
+
+    public void SwitchToDefault()
+    {
+        listeningButton.SetActive(false); 
+        voiceButton.SetActive(true);       
+    }
+    
+    void Awake()
+    {
+
+    }
     
     // Start is called before the first frame update
     void Start()
@@ -20,41 +41,20 @@ public class UIStateManager : MonoBehaviour
 
     }
 
-    void Awake()
-    {
-        mainMessageScreen = GameObject.Find("MainMessagingScreen");
-        cameraScreen = GameObject.Find("AutoCameraScreen");
-        expandButtons = GameObject.Find("AddButtons");
-        // transcriptionDialogue = GameObject.Find("TranscriptionDialogue"); 
-        
-        expandButtons.SetActive(false);
-        // transcriptionDialogue.SetActive(false);
-        mainMessageScreen.SetActive(false);
-        cameraScreen.SetActive(false);
-    }
+    // private void closeTranscriberDialogueAction()
+    // {
+    //     transcriptionDialogue.SetActive(false);
+    // }
 
-    private void closeTranscriberDialogueAction()
-    {
-        transcriptionDialogue.SetActive(false);
-    }
-
-    public void closeTranscriberDialogue()
-    {
-        Debug.Log("Recording Stopped");
-        Invoke("closeTranscriberDialogueAction", 10);
-    }
+    // public void closeTranscriberDialogue()
+    // {
+    //     Debug.Log("Recording Stopped");
+    //     Invoke("closeTranscriberDialogueAction", 10);
+    // }
 
     // Update is called once per frame
     void Update()
     {
-        // Get the first running phrase recognition subsystem.
-        var keywordRecognitionSubsystem = MixedReality.Toolkit.XRSubsystemHelpers.GetFirstRunningSubsystem<KeywordRecognitionSubsystem>();
 
-        // If we found one...
-        if (keywordRecognitionSubsystem != null)
-            {
-            // Register a keyword and its associated action with the subsystem
-            keywordRecognitionSubsystem.CreateOrGetEventForKeyword("keyword").AddListener(() => Debug.Log("Keyword recognized"));
-            }
     }
 }

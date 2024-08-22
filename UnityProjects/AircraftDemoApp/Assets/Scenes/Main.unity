@@ -9825,8 +9825,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1309a81cd618fe44a501c43ee0b93d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageRightPrefab: {fileID: 4344419709943415586, guid: 6a9cf5c01fdbd4f419759dc9aeba198a, type: 3}
+  messageRightPrefab: {fileID: 9099760246985232146, guid: 7af65849983906349b8bda3a5e24613a, type: 3}
   messagesContainer: {fileID: 9062819528061759507}
+  recordButton: {fileID: 0}
+  listeningButton: {fileID: 0}
   userMessageCount: 0
 --- !u!4 &791348058
 Transform:
@@ -11105,7 +11107,7 @@ GameObject:
   - component: {fileID: 931077724}
   m_Layer: 5
   m_Name: MessageVoiceButton
-  m_TagString: Untagged
+  m_TagString: MessageVB
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11747,19 +11749,6 @@ MonoBehaviour:
   <OnClicked>k__BackingField:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MixedReality.Toolkit.Examples.Demos.DictationHandler,
-          Assembly-CSharp
-        m_MethodName: StartRecognition
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 931077722}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -11771,7 +11760,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 2
       - m_Target: {fileID: 1756026681}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -11783,7 +11772,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 0
+        m_CallState: 2
       - m_Target: {fileID: 791348057}
         m_TargetAssemblyTypeName: MessagingController, Assembly-CSharp
         m_MethodName: MakeNewMessage
@@ -12871,7 +12860,7 @@ GameObject:
   - component: {fileID: 1006584514}
   m_Layer: 0
   m_Name: MessageVoiceButtonCanvas
-  m_TagString: Untagged
+  m_TagString: ButtonCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23988,7 +23977,7 @@ GameObject:
   - component: {fileID: 1756026683}
   m_Layer: 5
   m_Name: MessageStopVoiceButton
-  m_TagString: Untagged
+  m_TagString: StopMessage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24630,19 +24619,6 @@ MonoBehaviour:
   <OnClicked>k__BackingField:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MixedReality.Toolkit.Examples.Demos.DictationHandler,
-          Assembly-CSharp
-        m_MethodName: StopRecognition
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1756026681}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -24666,6 +24642,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 791348057}
+        m_TargetAssemblyTypeName: MessagingController, Assembly-CSharp
+        m_MethodName: StopRecording
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   <OnEnabled>k__BackingField:
     m_PersistentCalls:
@@ -25779,11 +25767,11 @@ GameObject:
   - component: {fileID: 1843531977}
   m_Layer: 0
   m_Name: UIStateManager
-  m_TagString: Untagged
+  m_TagString: StateManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1843531977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25796,7 +25784,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 322af7284f8ec994eaa227de5d9a65a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transcriberDictationHandler: {fileID: 662437336}
+  voiceButton: {fileID: 931077722}
+  listeningButton: {fileID: 1756026681}
 --- !u!4 &1843531978
 Transform:
   m_ObjectHideFlags: 0

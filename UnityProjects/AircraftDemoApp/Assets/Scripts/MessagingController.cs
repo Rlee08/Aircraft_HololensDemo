@@ -14,10 +14,13 @@ public class MessagingController : MonoBehaviour
     public static string dictationResult;
     public GameObject messageRightPrefab;
     [SerializeField] GameObject messagesContainer;
+    [SerializeField] GameObject recordButton;
+    [SerializeField] GameObject listeningButton;
     public int userMessageCount;
     private GameObject messageRightClone;
     private GameObject currentMessageRightClone;
 
+    
     // Instantiates a new speech bubble for every new recording
     public void MakeNewMessage()
     {
@@ -38,6 +41,13 @@ public class MessagingController : MonoBehaviour
         // Debug.Log("recognition should start for " + currentMessageRightClone);
     }
 
+    // Stops recognition and returns to listening button back to normal record button
+    public void StopRecording()
+    {
+        currentMessageRightClone = GameObject.Find("MessageRight" + userMessageCount);
+        currentMessageRightClone.GetComponent<DictationHandler>().StopRecognition();
+    }
+
     // Forces the layout group to update to fix the formatting
     IEnumerator UpdateLayoutGroup(GameObject prefabInstance)
     {
@@ -52,6 +62,7 @@ public class MessagingController : MonoBehaviour
         dictationResult = text;
         Debug.Log(dictationResult);
     }
+
 
     // Start is called before the first frame update
     void Start()
