@@ -20,8 +20,11 @@ public class UIStateManager : MonoBehaviour
     
     public void SwitchToListening()
     {
-        voiceButton.SetActive(false);
-        listeningButton.SetActive(true);
+        if (listeningButton.activeSelf)
+        {
+            voiceButton.SetActive(false);
+            listeningButton.SetActive(true);           
+        }
     }
 
     public void SwitchToDefault()
