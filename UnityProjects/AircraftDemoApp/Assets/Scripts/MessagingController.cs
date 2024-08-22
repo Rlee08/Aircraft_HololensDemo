@@ -11,11 +11,9 @@ using UnityEngine;
 
 public class MessagingController : MonoBehaviour
 {
-    public static string dictationResult;
+    // public static string dictationResult;
     public GameObject messageRightPrefab;
     [SerializeField] GameObject messagesContainer;
-    [SerializeField] GameObject recordButton;
-    [SerializeField] GameObject listeningButton;
     public int userMessageCount;
     private GameObject messageRightClone;
     private GameObject currentMessageRightClone;
@@ -57,11 +55,11 @@ public class MessagingController : MonoBehaviour
     }
 
     // Gets the dictation result into a string
-    public void OutputDictationResult(string text)
-    {
-        dictationResult = text;
-        Debug.Log(dictationResult);
-    }
+    // public void OutputDictationResult(string text)
+    // {
+    //     dictationResult = text;
+    //     Debug.Log(dictationResult);
+    // }
 
 
     // Start is called before the first frame update

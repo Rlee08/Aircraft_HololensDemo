@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 2277752669724320227}
   - component: {fileID: 7548453606714907848}
   - component: {fileID: 3485677980408009175}
+  - component: {fileID: 9062914604272747500}
   m_Layer: 5
   m_Name: MessageRight
   m_TagString: Untagged
@@ -380,6 +381,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 9062914604272747500}
+        m_TargetAssemblyTypeName: RAGConnector, Assembly-CSharp
+        m_MethodName: OutputDictationResult
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   <OnRecognitionFinished>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -420,5 +433,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 603c67e6e29d0f74094db171ce9c1780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9062914604272747500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9099760246985232146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1b8f12d9c300b84791502aefdf1f34a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
