@@ -8,6 +8,7 @@ TagManager:
   - MessageVB
   - StateManager
   - ButtonCanvas
+  - MessagingController
   layers:
   - Default
   - TransparentFX
