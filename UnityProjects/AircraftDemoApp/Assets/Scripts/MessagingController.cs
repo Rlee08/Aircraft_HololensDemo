@@ -97,7 +97,8 @@ public class MessagingController : MonoBehaviour
     {
         try
         {
-            client = new TcpClient("127.0.0.1", 1111);
+            // client = new TcpClient("10.246.138.157", 1111);
+            client = new TcpClient("10.246.138.157", 1111);
             stream = client.GetStream();
             byte[] buffer = new byte[1024];
 

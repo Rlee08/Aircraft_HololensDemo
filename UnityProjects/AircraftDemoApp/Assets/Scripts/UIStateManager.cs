@@ -14,6 +14,9 @@ public class UIStateManager : MonoBehaviour
 
     [SerializeField] GameObject voiceButton;
     [SerializeField] GameObject listeningButton;
+    [SerializeField] GameObject writeIP;
+    [SerializeField] GameObject confirmIP;
+
 
     // public DictationHandler transcriberDictationHandler;
 
@@ -31,6 +34,17 @@ public class UIStateManager : MonoBehaviour
     {
         listeningButton.SetActive(false); 
         voiceButton.SetActive(true);       
+    }
+
+    public void OpenConfirmation()
+    {
+        writeIP.SetActive(false);
+        confirmIP.SetActive(true);
+    }
+    public void OpenSetIP()
+    {
+        writeIP.SetActive(true);
+        confirmIP.SetActive(false);
     }
     
     void Awake()
