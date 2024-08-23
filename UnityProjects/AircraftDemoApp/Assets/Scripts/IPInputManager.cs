@@ -9,14 +9,7 @@ public class IPInputManager : MonoBehaviour
     public TMP_InputField IPinputField;
     public string savedIPAddress;
     
-    //When user is done editing text input, gets the string and sets to savedIPAddress
-    // public void GetIPAddress(string s)
-    // {
-    //     s = savedIPAddress;
-    //     Debug.Log("saved IP Address is: " + savedIPAddress);
-    // }
 
-    // On Save button pressed, saves the savedIPAddress string to the DataManager
     public void SaveIPAddress()
     {
         savedIPAddress = IPinputField.text;

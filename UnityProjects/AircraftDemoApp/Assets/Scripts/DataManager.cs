@@ -41,8 +41,8 @@ public class DataManager : MonoBehaviour
         Debug.Log("written IP Address is: " + ipAddress);
 
         string json = JsonUtility.ToJson(data);
-        File.WriteAllText(Application.persistentDataPath + "/saveip.json", json);
-        Debug.Log("Application.persistentDataPath: " + Application.persistentDataPath);
+        File.WriteAllText(Application.dataPath + "/saveip.json", json);
+        Debug.Log("the json file is found in: " + Application.dataPath);
     }
 
     //When called, loads the saved json file IP address to be used in the session (if it exists) and then sets the correct UI
@@ -50,7 +50,7 @@ public class DataManager : MonoBehaviour
     {
         stateManager = GameObject.FindWithTag("StateManager");
         
-        string path = Application.persistentDataPath + "/saveip.json";
+        string path = Application.dataPath + "/saveip.json";
 
         if(File.Exists(path))
         {
