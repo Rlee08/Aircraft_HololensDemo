@@ -28,6 +28,7 @@ public class MessagingController : MonoBehaviour
     private GameObject messageLeftClone;
     private GameObject currentMessageLeftClone;
     public string ragText;
+    private bool newResponse = false;
 
     
     // Instantiates a new speech bubble for every new recording
@@ -110,7 +111,8 @@ public class MessagingController : MonoBehaviour
 
                     ragText = response;
                     Debug.Log("response is" + ragText);
-                    MakeNewResponse();
+                    // MakeNewResponse();
+                    newResponse = true;
                 }
             }
         }
@@ -140,6 +142,10 @@ public class MessagingController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(newResponse)
+        {
+            MakeNewResponse();
+            newResponse = false;
+        }
     }
 }
