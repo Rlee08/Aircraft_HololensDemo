@@ -8,7 +8,7 @@ using System;
 public class RAGDisplayer : MonoBehaviour
 {    
     public TextMeshProUGUI ragOutput;
-    private GameObject messagingController;
+    // private GameObject messagingController;
 
 
     // Takes a string and populates the RAG speech bubble

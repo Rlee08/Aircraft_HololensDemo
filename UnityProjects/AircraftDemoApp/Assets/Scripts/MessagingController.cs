@@ -8,10 +8,16 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading;
 
 public class MessagingController : MonoBehaviour
 {
-    // public static string dictationResult;
+    Thread clientThread;
+    TcpClient client;
+    NetworkStream stream;
+    bool isRunning = true;
     public GameObject messageRightPrefab;
     public GameObject messageLeftPrefab;
     [SerializeField] GameObject messagesContainer;
@@ -21,7 +27,7 @@ public class MessagingController : MonoBehaviour
     private GameObject currentMessageRightClone;
     private GameObject messageLeftClone;
     private GameObject currentMessageLeftClone;
-    public static string ragText;
+    public string ragText;
 
     
     // Instantiates a new speech bubble for every new recording
@@ -53,9 +59,9 @@ public class MessagingController : MonoBehaviour
 
     // Instantiates a new speech bubble for every new RAG response
     public void MakeNewResponse()
-    {
+    {        
         // using this string to test to send to the speech bubble
-        ragText = "This is the text that will be received from RAG";        
+        // ragText = "This is the text that will be received from RAG";
         
         //Creates the speech bubble
         ragResponseCount ++ ;
@@ -77,18 +83,58 @@ public class MessagingController : MonoBehaviour
         prefabInstance.SetActive(true);
     }
 
-    // Gets the dictation result into a string
-    // public void OutputDictationResult(string text)
-    // {
-    //     dictationResult = text;
-    //     Debug.Log(dictationResult);
-    // }
-
-
     // Start is called before the first frame update
     void Start()
     {
         userMessageCount = 0;
+        ragResponseCount = 0;
+        clientThread = new Thread(new ThreadStart(StartClient));
+        clientThread.Start();
+    }
+
+    void StartClient()
+    {
+        try
+        {
+            client = new TcpClient("127.0.0.1", 1111);
+            stream = client.GetStream();
+            byte[] buffer = new byte[1024];
+
+            while (isRunning)
+            {
+                int bytesRead = stream.Read(buffer, 0, buffer.Length);
+                if (bytesRead > 0)
+                {
+                    string response = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                    Debug.Log("Received command: " + response);
+
+                    ragText = response;
+                    Debug.Log("response is" + ragText);
+                    MakeNewResponse();
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Exception: " + e.Message);
+        }
+        finally
+        {
+            if (stream != null)
+                stream.Close();
+            if (client != null)
+                client.Close();
+            Debug.Log("Client closed.");
+        }
+    }
+
+    void OnApplicationQuit()
+    {
+        isRunning = false;
+        if (clientThread != null)
+        {
+            clientThread.Join();
+        }
     }
 
     // Update is called once per frame
