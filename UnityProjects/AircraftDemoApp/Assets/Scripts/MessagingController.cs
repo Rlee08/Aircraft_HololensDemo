@@ -11,6 +11,8 @@ using UnityEngine;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.ComponentModel;
+using UnityEditor.Search;
 
 public class MessagingController : MonoBehaviour
 {
@@ -18,6 +20,9 @@ public class MessagingController : MonoBehaviour
     TcpClient client;
     NetworkStream stream;
     bool isRunning = true;
+    private string setIPAddress;
+    private int setPort;
+
     public GameObject messageRightPrefab;
     public GameObject messageLeftPrefab;
     [SerializeField] GameObject messagesContainer;
@@ -97,8 +102,14 @@ public class MessagingController : MonoBehaviour
     {
         try
         {
-            // client = new TcpClient("10.246.138.157", 1111);
-            client = new TcpClient("10.246.138.157", 1111);
+            setIPAddress = DataManager.Instance.ipAddress;
+            Debug.Log(setIPAddress);
+            
+
+            setPort = int.Parse(DataManager.Instance.port);
+            Debug.Log(setPort);
+
+            client = new TcpClient(setIPAddress, setPort);
             stream = client.GetStream();
             byte[] buffer = new byte[1024];
 

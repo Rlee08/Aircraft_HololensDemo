@@ -8,11 +8,14 @@ public class DataManager : MonoBehaviour
 {
     public static DataManager Instance { get; private set;}
     public string ipAddress;
+    public string port;
     private GameObject stateManager;
     public string ipaConfirmation;
+    public string portConfirmation;
     public TextMeshProUGUI ipaDisplay;
+    public TextMeshProUGUI portDisplay;
     public TMP_InputField IPinputField;
-    // public string savedIPAddress;
+    public TMP_InputField PortinputField;
     
 
     private void Awake()
@@ -33,13 +36,16 @@ public class DataManager : MonoBehaviour
     class SaveData
     {
         public string ipAddress;
+        public string port;
     }
 
     //When Save button is clicked, saves the input text as ipAddress and calls WriteData method to store it in file
     public void SaveIPAddress()
     {
         DataManager.Instance.ipAddress = IPinputField.text;
-        Debug.Log("saved IP Address is: " + ipAddress);
+        DataManager.Instance.port = PortinputField.text;
+        Debug.Log("saved " + ipAddress + "," + port);
+        
         DataManager.Instance.WriteData();
     }    
 
@@ -48,7 +54,8 @@ public class DataManager : MonoBehaviour
     {
         SaveData data = new SaveData();
         data.ipAddress = ipAddress;
-        Debug.Log("written IP Address is: " + ipAddress);
+        data.port = port;
+        Debug.Log("written: " + ipAddress + "," + port);
 
         string json = JsonUtility.ToJson(data);
         File.WriteAllText(Application.dataPath + "/saveip.json", json);
@@ -68,10 +75,14 @@ public class DataManager : MonoBehaviour
             string json = File.ReadAllText(path);
             SaveData data = JsonUtility.FromJson<SaveData>(json); 
             ipAddress = data.ipAddress;
+            port = data.port;
         
-            //sets the TMPro display to state the saved IP address
-            ipaConfirmation = "Your saved IP Address is " + ipAddress + " .";
+            //sets the TMPro display to state the saved IP address and port
+            ipaConfirmation = "Saved Server IP Address: " + ipAddress;
+            portConfirmation = "Saved Port Number: " + port;
             ipaDisplay.text = ipaConfirmation;
+            portDisplay.text = portConfirmation;
+
 
             stateManager.GetComponent<UIStateManager>().OpenConfirmation();
         }
