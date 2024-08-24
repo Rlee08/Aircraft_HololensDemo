@@ -11,6 +11,8 @@ public class DataManager : MonoBehaviour
     private GameObject stateManager;
     public string ipaConfirmation;
     public TextMeshProUGUI ipaDisplay;
+    public TMP_InputField IPinputField;
+    // public string savedIPAddress;
     
 
     private void Awake()
@@ -33,6 +35,14 @@ public class DataManager : MonoBehaviour
         public string ipAddress;
     }
 
+    //When Save button is clicked, saves the input text as ipAddress and calls WriteData method to store it in file
+    public void SaveIPAddress()
+    {
+        DataManager.Instance.ipAddress = IPinputField.text;
+        Debug.Log("saved IP Address is: " + ipAddress);
+        DataManager.Instance.WriteData();
+    }    
+
     //Writes the new IP address input to json file
     public void WriteData()
     {
@@ -42,7 +52,7 @@ public class DataManager : MonoBehaviour
 
         string json = JsonUtility.ToJson(data);
         File.WriteAllText(Application.dataPath + "/saveip.json", json);
-        Debug.Log("the json file is found in: " + Application.dataPath);
+        Debug.Log("the json file is found in: " + Application.dataPath + "/saveip.json");
     }
 
     //When called, loads the saved json file IP address to be used in the session (if it exists) and then sets the correct UI
