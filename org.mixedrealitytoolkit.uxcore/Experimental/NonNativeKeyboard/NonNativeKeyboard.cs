@@ -43,9 +43,9 @@ namespace MixedReality.Toolkit.UX.Experimental
         /// </summary>
         public enum LayoutType
         {
-            /// <summary>
-            /// Enables the alpha keys section and the alpha space section.
-            /// </summary>
+            // /// <summary>
+            // /// Enables the alpha keys section and the alpha space section.
+            // /// </summary>
             Alpha,
             /// <summary>
             /// Enables the symbol keys section.
@@ -55,9 +55,9 @@ namespace MixedReality.Toolkit.UX.Experimental
             /// Enables the alpha keys section and the url space section.
             /// </summary>
             URL,
-            /// <summary>
-            /// Enables the alpha keys section and the email space section.
-            /// </summary>
+            // /// <summary>
+            // /// Enables the alpha keys section and the email space section.
+            // /// </summary>
             Email,
         }
 
@@ -360,7 +360,7 @@ namespace MixedReality.Toolkit.UX.Experimental
         private void OnDisable()
         {
             // Reset the keyboard layout for next use
-            lastKeyboardLayout = LayoutType.Alpha;
+            lastKeyboardLayout = LayoutType.Symbol;
             Clear();
             StopDictation();
         }
@@ -385,7 +385,7 @@ namespace MixedReality.Toolkit.UX.Experimental
         /// </summary>
         public void Open()
         {
-            Open(LayoutType.Alpha);
+            Open(LayoutType.Symbol);
         }
 
 

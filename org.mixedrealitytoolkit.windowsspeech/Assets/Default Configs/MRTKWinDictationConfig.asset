@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2246702784ae354e961f4964fb2b952, type: 3}
   m_Name: MRTKWinDictationConfig
   m_EditorClassIdentifier: 
-  <InitialSilenceTimeoutSeconds>k__BackingField: 10
-  <AutoSilenceTimeout>k__BackingField: 2
+  <InitialSilenceTimeoutSeconds>k__BackingField: 2
+  <AutoSilenceTimeout>k__BackingField: 10
   confidenceLevel: 1

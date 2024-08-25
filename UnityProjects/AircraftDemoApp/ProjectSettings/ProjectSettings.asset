@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Mixed Reality Toolkit Organization
-  productName: Wingman1
+  companyName: Infosys
+  productName: InputField3
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -141,7 +141,7 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: 3.0.0
+  bundleVersion: 
   preloadedAssets:
   - {fileID: 0}
   metroInputSource: 0
@@ -863,14 +863,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Wingman
-  metroPackageVersion: 3.0.0.0
+  metroPackageName: InputField3
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: Assets/WSATestCertificate.pfx
   metroCertificatePassword: 
   metroCertificateSubject: Microsoft
   metroCertificateIssuer: Microsoft
   metroCertificateNotAfter: 803769c0d5dfda01
-  metroApplicationDescription: MRTK3 Sample
+  metroApplicationDescription: InputField
   wsaImages: {}
   metroTileShortName: MRTK3
   metroTileShowName: 0
