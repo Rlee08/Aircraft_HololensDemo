@@ -18,8 +18,14 @@ namespace MixedReality.Toolkit.UX.Experimental
     /// For these types of features, we want the community to see them and get 
     /// value out of them early enough so to provide feedback. 
     /// </remarks>
+    /// 
+
     public class TMPInputFieldNonNativeKeyboardTrigger : MonoBehaviour
-    {
+    {   
+        // private GameObject newKeyboard;
+        // public GameObject keyboardPrefab;
+        // [SerializeField] GameObject holster;
+
         [SerializeField]
         private TMP_InputField field;
 
@@ -64,6 +70,10 @@ namespace MixedReality.Toolkit.UX.Experimental
         /// </summary>
         public void PresentKeyboard()
         {
+            //added to make a new keyboard for every input field selected to fix keyboard freeze bug
+            // newKeyboard = Instantiate(keyboardPrefab);
+            // newKeyboard.transform.SetParent(holster.transform, false); 
+                       
             NonNativeKeyboard keyboard = NonNativeKeyboard.Instance;
             keyboard.Open();
             keyboard.OnClose?.AddListener(OnKeyboardClose);

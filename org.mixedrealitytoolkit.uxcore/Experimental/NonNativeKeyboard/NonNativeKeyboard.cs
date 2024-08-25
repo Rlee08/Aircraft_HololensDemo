@@ -273,6 +273,21 @@ namespace MixedReality.Toolkit.UX.Experimental
         /// <summary>
         /// A Unity event function that is called when an enabled script instance is being loaded.
         /// </summary>
+        
+        // public void clearKeyboard()
+        // {
+        //     if (Instance != null && Instance != this)
+        //     {
+        //         Debug.LogError("There should only be one NonNativeKeyboard in a scene. Destroying a duplicate instance.");
+        //         Destroy(gameObject);
+        //         return;
+        //     }
+        //     Instance = this;
+        // }
+
+        /// <summary>
+        /// A Unity event function that is called when an enabled script instance is being loaded.
+        /// </summary>        
         private void Awake()
         {
             if (Instance != null && Instance != this)
