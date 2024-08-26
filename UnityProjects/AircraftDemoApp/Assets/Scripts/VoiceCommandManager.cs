@@ -14,7 +14,7 @@ public class VoiceCommandManager : MonoBehaviour
 
     [SerializeField] private GameObject mainMessenger;
     [SerializeField] private GameObject handMenu;
-    private bool isListening = false;
+    public bool isListening = false;
 
     // Start is called before the first frame update
     void Start()
@@ -47,18 +47,20 @@ public class VoiceCommandManager : MonoBehaviour
         }
     }
 
-    public void assessDamage()
-    {
-        if (isListening == true)
-        {
-            Debug.Log("Keyword Detected: assess damage");
-            autoCameraScreen.SetActive(true);
-        }
-        else
-        {
-           Debug.Log("not listening"); 
-        }
-    }
+    //Moved to CaptureImage script for faster load time
+    // public void assessDamage()
+    // {
+    //     if (isListening == true)
+    //     {
+    //         Debug.Log("Keyword Detected: assess damage");
+    //         autoCameraScreen.SetActive(true);
+
+    //     }
+    //     else
+    //     {
+    //        Debug.Log("not listening"); 
+    //     }
+    // }
 
     public void expandMenu()
     {

@@ -7,13 +7,36 @@ public class CaptureImage : MonoBehaviour
 
     WebCamTexture webcam;
     private Renderer chatPreview;
+    private GameObject assessDamageMessageClone;
+    [SerializeField] private GameObject assessDamageMessagePrefab;
+    [SerializeField] private GameObject messagesContainer;
+    private GameObject messagePhotoPreview;
+    public VoiceCommandManager voiceCommandManager;
+    [SerializeField] private GameObject autoCameraScreen;
+
 
     // Start is called before the first frame update
     void Start()
     {
-       webcam = new WebCamTexture();
-       webcam.Play();
-       Debug.LogFormat("webcam: {0} {1} x {2}", webcam.deviceName, webcam.width, webcam.height);
+
+    }
+
+    public void InitiateCameraScreen()
+    {
+        if (voiceCommandManager.isListening)
+        {
+            Debug.Log("Keyword Detected: assess damage");
+            autoCameraScreen.SetActive(true);
+
+            //Starts the camera
+            webcam = new WebCamTexture();
+            webcam.Play();
+            Debug.LogFormat("webcam: {0} {1} x {2}", webcam.deviceName, webcam.width, webcam.height);
+        }
+        else
+        {
+           Debug.Log("not listening"); 
+        }
     }
     public Texture2D TakePhoto()
     {
@@ -22,8 +45,12 @@ public class CaptureImage : MonoBehaviour
         Texture2D webcamImage = new Texture2D(webcam.width, webcam.height);
         webcamImage.SetPixels32(webcam.GetPixels32());
         webcamImage.Apply();
-
         return webcamImage;
+    }
+
+    public void StopCamera()
+    {
+        webcam.Stop();
     }
 
     public void TakePhotoToPreview(Renderer preview)
@@ -38,14 +65,38 @@ public class CaptureImage : MonoBehaviour
         preview.transform.localScale = scale;
     }
 
-    public void TakePhotoToMessagePreview(Renderer chatPreview)
+    public void MakePhotoPreviewMessage()
     {
+        //Instantiates the assess damage message clone
+        assessDamageMessageClone = Instantiate(assessDamageMessagePrefab);
+        assessDamageMessageClone.transform.SetParent(messagesContainer.transform, false);        
+
+        //Gets the renderer component for the messagePhotoPreview
+        messagePhotoPreview = GameObject.FindWithTag("MessagePhotoPreview");
+        chatPreview = messagePhotoPreview.GetComponent<Renderer>();
+        
+        //Sets the messagePhotoPreview Renderer to be the photo
         Texture2D image = TakePhoto();
         chatPreview.material.mainTexture = image;
 
-        
+        //update the aspect ratio to match the camera
+        float aspectRatio = (float)image.width / (float)image.height;
+        Vector3 scale = chatPreview.transform.localScale;
+        scale.x = scale.y * aspectRatio;
+        chatPreview.transform.localScale = scale;
+
+        //Calls force update script
+        StartCoroutine(UpdateLayoutGroup(assessDamageMessageClone));       
     }
     
+    // Forces the layout group to update to fix the formatting
+    IEnumerator UpdateLayoutGroup(GameObject prefabInstance)
+    {
+        yield return new WaitForEndOfFrame();
+        prefabInstance.SetActive(false);
+        prefabInstance.SetActive(true);
+    }
+
     // Update is called once per frame
     void Update()
     {

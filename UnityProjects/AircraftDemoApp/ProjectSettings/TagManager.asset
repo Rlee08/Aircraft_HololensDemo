@@ -9,6 +9,7 @@ TagManager:
   - StateManager
   - ButtonCanvas
   - MessagingController
+  - MessagePhotoPreview
   layers:
   - Default
   - TransparentFX
