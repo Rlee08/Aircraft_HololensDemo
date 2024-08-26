@@ -6,6 +6,7 @@ public class CaptureImage : MonoBehaviour
 {
 
     WebCamTexture webcam;
+    private Renderer chatPreview;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class CaptureImage : MonoBehaviour
         Debug.Log("Take Photo");
 
         Texture2D webcamImage = new Texture2D(webcam.width, webcam.height);
-        webcamImage.SetPixels(webcam.GetPixels());
+        webcamImage.SetPixels32(webcam.GetPixels32());
         webcamImage.Apply();
 
         return webcamImage;
@@ -37,7 +38,13 @@ public class CaptureImage : MonoBehaviour
         preview.transform.localScale = scale;
     }
 
-    
+    public void TakePhotoToMessagePreview(Renderer chatPreview)
+    {
+        Texture2D image = TakePhoto();
+        chatPreview.material.mainTexture = image;
+
+        
+    }
     
     // Update is called once per frame
     void Update()

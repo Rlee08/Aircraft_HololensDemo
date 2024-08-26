@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1873523348339475013}
   - component: {fileID: 5220000106918253820}
   - component: {fileID: 6844309901049270503}
-  - component: {fileID: 8414698668367352320}
+  - component: {fileID: 9217922745765721746}
   m_Layer: 0
   m_Name: UserSpeechBubble (1)
   m_TagString: Untagged
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &8414698668367352320
+--- !u!114 &9217922745765721746
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 3485677980408009175}
   - component: {fileID: 9062914604272747500}
   m_Layer: 5
-  m_Name: MessageRight
+  m_Name: DamageMessagePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
