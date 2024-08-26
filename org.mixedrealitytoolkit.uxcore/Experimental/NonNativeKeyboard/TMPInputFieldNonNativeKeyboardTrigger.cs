@@ -75,6 +75,10 @@ namespace MixedReality.Toolkit.UX.Experimental
             // newKeyboard.transform.SetParent(holster.transform, false); 
                        
             NonNativeKeyboard keyboard = NonNativeKeyboard.Instance;
+
+            //attempts to remove the current keyboard to prevent double
+            keyboard.Close();
+
             keyboard.Open();
             keyboard.OnClose?.AddListener(OnKeyboardClose);
             keyboard.OnTextUpdate?.AddListener(UpdateText);
