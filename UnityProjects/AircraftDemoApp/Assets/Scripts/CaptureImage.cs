@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CaptureImage : MonoBehaviour
 {
-
     WebCamTexture webcam;
     private Renderer chatPreview;
     private GameObject assessDamageMessageClone;
@@ -18,28 +17,17 @@ public class CaptureImage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        StartCamera();
     }
 
-    public void InitiateCameraScreen()
+    private void StartCamera()
     {
-        if (voiceCommandManager.isListening)
-        {
-            Debug.Log("Keyword Detected: assess damage");
-            autoCameraScreen.SetActive(true);
-
-            //Starts the camera
-            webcam = new WebCamTexture();
-            webcam.Play();
-            Debug.LogFormat("webcam: {0} {1} x {2}", webcam.deviceName, webcam.width, webcam.height);
-        }
-        else
-        {
-           Debug.Log("not listening"); 
-        }
+        webcam = new WebCamTexture();
+        webcam.Play();
+        Debug.LogFormat("webcam: {0} {1} x {2}", webcam.deviceName, webcam.width, webcam.height);        
     }
     public Texture2D TakePhoto()
-    {
+    { 
         Debug.Log("Take Photo");
 
         Texture2D webcamImage = new Texture2D(webcam.width, webcam.height);
@@ -100,6 +88,6 @@ public class CaptureImage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

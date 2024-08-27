@@ -12,16 +12,28 @@ public class RAGConnector : MonoBehaviour
     public static string dictationResult;
     TcpClient client;
     NetworkStream stream;
+    private string setIPAddress;
+    private int setPort;
 
     // Gets the dictation result into a string and then sends to server
     public void OutputDictationResult(string text)
     {
-        client = new TcpClient("127.0.0.1", 1111);
-        stream = client.GetStream();
-        byte[] buffer = new byte[1024];        
+        // client = new TcpClient("127.0.0.1", 1111);
+        // stream = client.GetStream();
+        // byte[] buffer = new byte[1024];        
         
         dictationResult = text;
         Debug.Log(dictationResult);
+
+        setIPAddress = DataManager.Instance.ipAddress;
+        // Debug.Log(setIPAddress);
+            
+        setPort = int.Parse(DataManager.Instance.port);
+        // Debug.Log(setPort);
+
+        client = new TcpClient(setIPAddress, setPort);
+        stream = client.GetStream();
+        byte[] buffer = new byte[1024];        
 
         // Sends the dictation result to server
         if (stream != null && client.Connected)

@@ -47,20 +47,19 @@ public class VoiceCommandManager : MonoBehaviour
         }
     }
 
-    //Moved to CaptureImage script for faster load time
-    // public void assessDamage()
-    // {
-    //     if (isListening == true)
-    //     {
-    //         Debug.Log("Keyword Detected: assess damage");
-    //         autoCameraScreen.SetActive(true);
+    public void assessDamage()
+    {
+        if (isListening == true)
+        {
+            Debug.Log("Keyword Detected: assess damage");
+            autoCameraScreen.SetActive(true);
 
-    //     }
-    //     else
-    //     {
-    //        Debug.Log("not listening"); 
-    //     }
-    // }
+        }
+        else
+        {
+           Debug.Log("not listening"); 
+        }
+    }
 
     public void expandMenu()
     {

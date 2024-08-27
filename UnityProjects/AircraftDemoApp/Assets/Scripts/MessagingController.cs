@@ -34,7 +34,8 @@ public class MessagingController : MonoBehaviour
     private GameObject currentMessageLeftClone;
     public string ragText;
     private bool newResponse = false;
-
+    private Texture2D messageImage;
+    public static string dictationResult;
     
     // Instantiates a new speech bubble for every new recording
     public void MakeNewMessage()
@@ -63,6 +64,21 @@ public class MessagingController : MonoBehaviour
         currentMessageRightClone.GetComponent<DictationHandler>().StopRecognition();
     }
 
+    // Gets the dictation result into a string and then sends to server
+    public void OutputDictationResult(string text)
+    {   
+        dictationResult = text;
+        Debug.Log(dictationResult);
+
+        // Sends the dictation result to server
+        if (stream != null && client.Connected)
+        {
+            byte[] message = Encoding.UTF8.GetBytes(dictationResult);
+            stream.Write(message, 0, message.Length);
+            Debug.Log("Sent input to server: " + dictationResult);
+        }
+    }
+
     // Instantiates a new speech bubble for every new RAG response
     public void MakeNewResponse()
     {        
@@ -81,6 +97,30 @@ public class MessagingController : MonoBehaviour
         currentMessageLeftClone.GetComponent<RAGDisplayer>().DisplayRAGMessage(ragText);
     }
 
+    // public void MakePhotoPreviewMessage()
+    // {
+    //     //Instantiates the assess damage message clone
+    //     assessDamageMessageClone = Instantiate(assessDamageMessagePrefab);
+    //     assessDamageMessageClone.transform.SetParent(messagesContainer.transform, false);        
+
+    //     //Gets the renderer component for the messagePhotoPreview
+    //     messagePhotoPreview = GameObject.FindWithTag("MessagePhotoPreview");
+    //     chatPreview = messagePhotoPreview.GetComponent<Renderer>();
+        
+    //     //Sets the messagePhotoPreview Renderer to be the photo
+    //     Texture2D image = TakePhoto();
+    //     chatPreview.material.mainTexture = messageImage;
+
+    //     //update the aspect ratio to match the camera
+    //     float aspectRatio = (float)image.width / (float)image.height;
+    //     Vector3 scale = chatPreview.transform.localScale;
+    //     scale.x = scale.y * aspectRatio;
+    //     chatPreview.transform.localScale = scale;
+
+    //     //Calls force update script
+    //     StartCoroutine(UpdateLayoutGroup(assessDamageMessageClone));       
+    // }    
+
     // Forces the layout group to update to fix the formatting
     IEnumerator UpdateLayoutGroup(GameObject prefabInstance)
     {
@@ -98,6 +138,46 @@ public class MessagingController : MonoBehaviour
         clientThread.Start();
     }
 
+    // static void Main(string[] args)
+    // {
+    //     // Define server IP and port
+    //     string serverIP = "10.246.136.190"; // Replace with the actual IP if needed
+    //     int port = 5000;
+
+    //     // Create a TcpClient
+    //     TcpClient client = new TcpClient();
+
+    //     try
+    //     {
+    //         // Connect to the server
+    //         client.Connect(serverIP, port);
+    //         Console.WriteLine("Connected to server.");
+
+    //         // Get the network stream
+    //         NetworkStream stream = client.GetStream();
+
+    //         // Send data to the server
+    //         Console.Write("You: ");
+    //         string message = Console.ReadLine();
+    //         byte[] data = Encoding.ASCII.GetBytes(message);
+    //         stream.Write(data, 0, data.Length);
+
+    //         // Receive data from the server
+    //         byte[] buffer = new byte[1024];
+    //         int bytesRead = stream.Read(buffer, 0, buffer.Length);
+    //         string response = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+    //         Console.WriteLine($"Server: {response}");
+
+    //         // Close the stream and client
+    //         stream.Close();
+    //         client.Close();
+    //     }
+    //     catch (Exception ex)
+    //     {
+    //         Console.WriteLine($"Exception: {ex.Message}");
+    //     }
+    // }    
+
     void StartClient()
     {
         try
@@ -105,7 +185,6 @@ public class MessagingController : MonoBehaviour
             setIPAddress = DataManager.Instance.ipAddress;
             Debug.Log(setIPAddress);
             
-
             setPort = int.Parse(DataManager.Instance.port);
             Debug.Log(setPort);
 
@@ -118,8 +197,8 @@ public class MessagingController : MonoBehaviour
                 int bytesRead = stream.Read(buffer, 0, buffer.Length);
                 if (bytesRead > 0)
                 {
-                    string response = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                    Debug.Log("Received command: " + response);
+                    string response = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+                    Debug.Log("Received response: " + response);
 
                     ragText = response;
                     Debug.Log("response is" + ragText);
