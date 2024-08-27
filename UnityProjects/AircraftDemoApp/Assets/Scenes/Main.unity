@@ -6207,10 +6207,10 @@ RectTransform:
   - {fileID: 70766417}
   m_Father: {fileID: 2093286663}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 25, y: -53}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &164624336
 MonoBehaviour:
@@ -7603,7 +7603,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 25, y: -12}
-  m_SizeDelta: {x: 40, y: 0}
+  m_SizeDelta: {x: 40, y: 24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &217732553
 MonoBehaviour:
@@ -12116,10 +12116,10 @@ RectTransform:
   - {fileID: 184997606}
   m_Father: {fileID: 314094705}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 16, y: -7.9999943}
+  m_SizeDelta: {x: 12, y: 15.999989}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &348295593
 MonoBehaviour:
@@ -19238,9 +19238,9 @@ RectTransform:
   - {fileID: 1197816018}
   m_Father: {fileID: 217732552}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 20, y: -12}
   m_SizeDelta: {x: 32, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &568758926
@@ -28170,6 +28170,7 @@ MonoBehaviour:
   userMessageCount: 0
   ragResponseCount: 0
   ragText: 
+  figureMessagePrefab: {fileID: 9099760246985232146, guid: 6056e9636a8b94b428dd612b0b9ea64e, type: 3}
 --- !u!4 &791348058
 Transform:
   m_ObjectHideFlags: 0
@@ -43586,10 +43587,10 @@ RectTransform:
   - {fileID: 1087903765}
   m_Father: {fileID: 502053670}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 21, y: -20.999994}
+  m_SizeDelta: {x: 12, y: 41.99999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1315671020
 MonoBehaviour:
@@ -58263,10 +58264,10 @@ RectTransform:
   - {fileID: 1607540732}
   m_Father: {fileID: 164624335}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 25, y: -25}
+  m_SizeDelta: {x: 42, y: 42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1697915535
 MonoBehaviour:
@@ -70281,6 +70282,7 @@ MonoBehaviour:
   addButtons: {fileID: 692041415}
   mainMessenger: {fileID: 925874394}
   handMenu: {fileID: 7020600565697351178}
+  messagingController: {fileID: 791348057}
   isListening: 0
 --- !u!4 &2092153908
 Transform:
@@ -70374,6 +70376,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+  - Keyword: retrieve a figure showing the fuselage skin areas
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2092153907}
+          m_TargetAssemblyTypeName: VoiceCommandManager, Assembly-CSharp
+          m_MethodName: RetrieveFigure
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
   globalEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -70414,7 +70432,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 0}
+  m_SizeDelta: {x: 50, y: 78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2093286664
 MonoBehaviour:
@@ -77842,7 +77860,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7020600567413794252
 Transform:
   m_ObjectHideFlags: 0
@@ -80364,7 +80382,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 211, y: 0}
+  m_AnchoredPosition: {x: 211, y: -0}
   m_SizeDelta: {x: 340, y: 128}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!82 &9062819528061759501

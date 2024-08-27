@@ -14,6 +14,7 @@ public class VoiceCommandManager : MonoBehaviour
 
     [SerializeField] private GameObject mainMessenger;
     [SerializeField] private GameObject handMenu;
+    [SerializeField] MessagingController messagingController;
     public bool isListening = false;
 
     // Start is called before the first frame update
@@ -78,6 +79,12 @@ public class VoiceCommandManager : MonoBehaviour
             mainMessenger.SetActive(true);
             handMenu.SetActive(false);
         }
+    }
+
+    public void RetrieveFigure()
+    {
+        Debug.Log("Retrieve figure");
+        messagingController.MakeFigureResponse();
     }
 
 }

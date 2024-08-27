@@ -36,6 +36,8 @@ public class MessagingController : MonoBehaviour
     private bool newResponse = false;
     private Texture2D messageImage;
     public static string dictationResult;
+    private GameObject figureMessageClone;
+    public GameObject figureMessagePrefab;
     
     // Instantiates a new speech bubble for every new recording
     public void MakeNewMessage()
@@ -97,6 +99,13 @@ public class MessagingController : MonoBehaviour
         currentMessageLeftClone.GetComponent<RAGDisplayer>().DisplayRAGMessage(ragText);
     }
 
+    public void MakeFigureResponse()
+    {
+        figureMessageClone = Instantiate(figureMessagePrefab);
+        figureMessageClone.transform.SetParent(messagesContainer.transform, false);
+        StartCoroutine(UpdateLayoutGroup(figureMessageClone));
+    }
+
     // public void MakePhotoPreviewMessage()
     // {
     //     //Instantiates the assess damage message clone
@@ -137,46 +146,6 @@ public class MessagingController : MonoBehaviour
         clientThread = new Thread(new ThreadStart(StartClient));
         clientThread.Start();
     }
-
-    // static void Main(string[] args)
-    // {
-    //     // Define server IP and port
-    //     string serverIP = "10.246.136.190"; // Replace with the actual IP if needed
-    //     int port = 5000;
-
-    //     // Create a TcpClient
-    //     TcpClient client = new TcpClient();
-
-    //     try
-    //     {
-    //         // Connect to the server
-    //         client.Connect(serverIP, port);
-    //         Console.WriteLine("Connected to server.");
-
-    //         // Get the network stream
-    //         NetworkStream stream = client.GetStream();
-
-    //         // Send data to the server
-    //         Console.Write("You: ");
-    //         string message = Console.ReadLine();
-    //         byte[] data = Encoding.ASCII.GetBytes(message);
-    //         stream.Write(data, 0, data.Length);
-
-    //         // Receive data from the server
-    //         byte[] buffer = new byte[1024];
-    //         int bytesRead = stream.Read(buffer, 0, buffer.Length);
-    //         string response = Encoding.ASCII.GetString(buffer, 0, bytesRead);
-    //         Console.WriteLine($"Server: {response}");
-
-    //         // Close the stream and client
-    //         stream.Close();
-    //         client.Close();
-    //     }
-    //     catch (Exception ex)
-    //     {
-    //         Console.WriteLine($"Exception: {ex.Message}");
-    //     }
-    // }    
 
     void StartClient()
     {
