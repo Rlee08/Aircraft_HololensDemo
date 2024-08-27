@@ -38,6 +38,11 @@ public class MessagingController : MonoBehaviour
     public static string dictationResult;
     private GameObject figureMessageClone;
     public GameObject figureMessagePrefab;
+    private Renderer chatPreview;
+    private GameObject assessDamageMessageClone;
+    [SerializeField] private GameObject assessDamageMessagePrefab;
+    private GameObject messagePhotoPreview;
+    [SerializeField] CameraHandler cameraHandler;
     
     // Instantiates a new speech bubble for every new recording
     public void MakeNewMessage()
@@ -106,29 +111,29 @@ public class MessagingController : MonoBehaviour
         StartCoroutine(UpdateLayoutGroup(figureMessageClone));
     }
 
-    // public void MakePhotoPreviewMessage()
-    // {
-    //     //Instantiates the assess damage message clone
-    //     assessDamageMessageClone = Instantiate(assessDamageMessagePrefab);
-    //     assessDamageMessageClone.transform.SetParent(messagesContainer.transform, false);        
+    public void MakePhotoPreviewMessage()
+    {
+        //Instantiates the assess damage message clone
+        assessDamageMessageClone = Instantiate(assessDamageMessagePrefab);
+        assessDamageMessageClone.transform.SetParent(messagesContainer.transform, false);        
 
-    //     //Gets the renderer component for the messagePhotoPreview
-    //     messagePhotoPreview = GameObject.FindWithTag("MessagePhotoPreview");
-    //     chatPreview = messagePhotoPreview.GetComponent<Renderer>();
+        //Gets the renderer component for the messagePhotoPreview
+        messagePhotoPreview = GameObject.FindWithTag("MessagePhotoPreview");
+        chatPreview = messagePhotoPreview.GetComponent<Renderer>();
         
-    //     //Sets the messagePhotoPreview Renderer to be the photo
-    //     Texture2D image = TakePhoto();
-    //     chatPreview.material.mainTexture = messageImage;
+        //Sets the messagePhotoPreview Renderer to be the photo
+        messageImage = cameraHandler.image;
+        chatPreview.material.mainTexture = messageImage;
 
-    //     //update the aspect ratio to match the camera
-    //     float aspectRatio = (float)image.width / (float)image.height;
-    //     Vector3 scale = chatPreview.transform.localScale;
-    //     scale.x = scale.y * aspectRatio;
-    //     chatPreview.transform.localScale = scale;
+        //update the aspect ratio to match the camera
+        float aspectRatio = (float)messageImage.width / (float)messageImage.height;
+        Vector3 scale = chatPreview.transform.localScale;
+        scale.x = scale.y * aspectRatio;
+        chatPreview.transform.localScale = scale;
 
-    //     //Calls force update script
-    //     StartCoroutine(UpdateLayoutGroup(assessDamageMessageClone));       
-    // }    
+        //Calls force update script
+        StartCoroutine(UpdateLayoutGroup(assessDamageMessageClone));       
+    }    
 
     // Forces the layout group to update to fix the formatting
     IEnumerator UpdateLayoutGroup(GameObject prefabInstance)

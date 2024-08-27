@@ -54,7 +54,6 @@ public class VoiceCommandManager : MonoBehaviour
         {
             Debug.Log("Keyword Detected: assess damage");
             autoCameraScreen.SetActive(true);
-
         }
         else
         {

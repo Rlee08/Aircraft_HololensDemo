@@ -3465,7 +3465,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 0
+        m_CallState: 2
       - m_Target: {fileID: 662437336}
         m_TargetAssemblyTypeName: MixedReality.Toolkit.Examples.Demos.DictationHandler,
           Assembly-CSharp
@@ -6207,10 +6207,10 @@ RectTransform:
   - {fileID: 70766417}
   m_Father: {fileID: 2093286663}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 25, y: -53}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &164624336
 MonoBehaviour:
@@ -7603,7 +7603,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 25, y: -12}
-  m_SizeDelta: {x: 40, y: 24}
+  m_SizeDelta: {x: 40, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &217732553
 MonoBehaviour:
@@ -12116,10 +12116,10 @@ RectTransform:
   - {fileID: 184997606}
   m_Father: {fileID: 314094705}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 16, y: -7.9999943}
-  m_SizeDelta: {x: 12, y: 15.999989}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &348295593
 MonoBehaviour:
@@ -19238,9 +19238,9 @@ RectTransform:
   - {fileID: 1197816018}
   m_Father: {fileID: 217732552}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 20, y: -12}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 32, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &568758926
@@ -28171,6 +28171,8 @@ MonoBehaviour:
   ragResponseCount: 0
   ragText: 
   figureMessagePrefab: {fileID: 9099760246985232146, guid: 6056e9636a8b94b428dd612b0b9ea64e, type: 3}
+  assessDamageMessagePrefab: {fileID: 9099760246985232146, guid: 5831fd61f50417543b8f8b4abc6d5447, type: 3}
+  cameraHandler: {fileID: 1082968223}
 --- !u!4 &791348058
 Transform:
   m_ObjectHideFlags: 0
@@ -36940,6 +36942,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1082968222}
+  - component: {fileID: 1082968223}
   m_Layer: 0
   m_Name: AutoCameraScreen
   m_TagString: Untagged
@@ -36963,6 +36966,20 @@ Transform:
   - {fileID: 450177490}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1082968223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082968221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2862f78f5e7d606409327dd1509c98e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 0}
+  cameraScreen: {fileID: 1082968221}
 --- !u!1 &1084234382
 GameObject:
   m_ObjectHideFlags: 0
@@ -43587,10 +43604,10 @@ RectTransform:
   - {fileID: 1087903765}
   m_Father: {fileID: 502053670}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 21, y: -20.999994}
-  m_SizeDelta: {x: 12, y: 41.99999}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1315671020
 MonoBehaviour:
@@ -58264,10 +58281,10 @@ RectTransform:
   - {fileID: 1607540732}
   m_Father: {fileID: 164624335}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 25, y: -25}
-  m_SizeDelta: {x: 42, y: 42}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1697915535
 MonoBehaviour:
@@ -70332,9 +70349,9 @@ MonoBehaviour:
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 927951182}
-          m_TargetAssemblyTypeName: CaptureImage, Assembly-CSharp
-          m_MethodName: InitiateCameraScreen
+        - m_Target: {fileID: 2092153907}
+          m_TargetAssemblyTypeName: VoiceCommandManager, Assembly-CSharp
+          m_MethodName: assessDamage
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -70432,7 +70449,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 78}
+  m_SizeDelta: {x: 50, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2093286664
 MonoBehaviour:
@@ -75116,8 +75133,8 @@ MonoBehaviour:
   <OnClicked>k__BackingField:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 927951182}
-        m_TargetAssemblyTypeName: CaptureImage, Assembly-CSharp
+      - m_Target: {fileID: 1082968223}
+        m_TargetAssemblyTypeName: CameraHandler, Assembly-CSharp
         m_MethodName: TakePhotoToPreview
         m_Mode: 2
         m_Arguments:
@@ -77860,7 +77877,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7020600567413794252
 Transform:
   m_ObjectHideFlags: 0
@@ -79744,8 +79761,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 927951182}
-        m_TargetAssemblyTypeName: CaptureImage, Assembly-CSharp
+      - m_Target: {fileID: 791348057}
+        m_TargetAssemblyTypeName: MessagingController, Assembly-CSharp
         m_MethodName: MakePhotoPreviewMessage
         m_Mode: 1
         m_Arguments:
@@ -79756,22 +79773,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 927951182}
-        m_TargetAssemblyTypeName: CaptureImage, Assembly-CSharp
+      - m_Target: {fileID: 1082968223}
+        m_TargetAssemblyTypeName: CameraHandler, Assembly-CSharp
         m_MethodName: StopCamera
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1082968221}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

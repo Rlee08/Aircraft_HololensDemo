@@ -17,18 +17,21 @@ public class CaptureImage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCamera();
+
     }
 
-    private void StartCamera()
+    public void StartCamera()
     {
         webcam = new WebCamTexture();
         webcam.Play();
-        Debug.LogFormat("webcam: {0} {1} x {2}", webcam.deviceName, webcam.width, webcam.height);        
+        // Debug.LogFormat("webcam: {0} {1} x {2}", webcam.deviceName, webcam.width, webcam.height);        
     }
     public Texture2D TakePhoto()
     { 
         Debug.Log("Take Photo");
+
+        // StartCamera();
+        // Debug.Log("CameraStarted");
 
         Texture2D webcamImage = new Texture2D(webcam.width, webcam.height);
         webcamImage.SetPixels32(webcam.GetPixels32());
@@ -41,17 +44,19 @@ public class CaptureImage : MonoBehaviour
         webcam.Stop();
     }
 
-    public void TakePhotoToPreview(Renderer preview)
-    {
-        Texture2D image = TakePhoto();
-        preview.material.mainTexture = image;
+    // public void TakePhotoToPreview(Renderer preview)
+    // {
+    //     Texture2D image = TakePhoto();
+    //     preview.material.mainTexture = image;
         
-        //update the aspect ratio to match the camera
-        float aspectRatio = (float)image.width / (float)image.height;
-        Vector3 scale = preview.transform.localScale;
-        scale.x = scale.y * aspectRatio;
-        preview.transform.localScale = scale;
-    }
+    //     //update the aspect ratio to match the camera
+    //     float aspectRatio = (float)image.width / (float)image.height;
+    //     Vector3 scale = preview.transform.localScale;
+    //     scale.x = scale.y * aspectRatio;
+    //     preview.transform.localScale = scale;
+
+    //     Invoke("StopCamera", 8);
+    // }
 
     public void MakePhotoPreviewMessage()
     {
