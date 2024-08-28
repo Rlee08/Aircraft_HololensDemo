@@ -46,6 +46,8 @@ public class MessagingController : MonoBehaviour
     [SerializeField] CameraHandler cameraHandler;
     [SerializeField] ScrollRect scrollRect;
     public float scrollSpeed = 2;
+    [SerializeField] GameObject assessDamageResponsePrefab;
+    private GameObject assessDamageResponseClone;
     
     // Instantiates a new speech bubble for every new recording
     public void MakeNewMessage()
@@ -55,6 +57,7 @@ public class MessagingController : MonoBehaviour
         messageRightClone.transform.SetParent(messagesContainer.transform, false);
         messageRightClone.name = "MessageRight" + userMessageCount;
         StartCoroutine(UpdateLayoutGroup(messageRightClone));
+        StartCoroutine(ScrollToBottom());
     }
 
     // Calls DictationHandler and starts recognition for this unique Instantiate
@@ -106,6 +109,7 @@ public class MessagingController : MonoBehaviour
         currentMessageLeftClone = GameObject.Find("MessageLeft" + ragResponseCount);
         currentMessageLeftClone.GetComponent<RAGDisplayer>().DisplayRAGMessage(ragText);
         StartCoroutine(UpdateLayoutGroup(messageLeftClone));
+        StartCoroutine(ScrollToBottom());
     }
 
     public void MakeFigureResponse()
@@ -113,6 +117,7 @@ public class MessagingController : MonoBehaviour
         figureMessageClone = Instantiate(figureMessagePrefab);
         figureMessageClone.transform.SetParent(messagesContainer.transform, false);
         StartCoroutine(UpdateLayoutGroup(figureMessageClone));
+        StartCoroutine(ScrollToBottom());
     }
 
     public void MakePhotoPreviewMessage()
@@ -136,8 +141,21 @@ public class MessagingController : MonoBehaviour
         chatPreview.transform.localScale = scale;
 
         //Calls force update script
-        StartCoroutine(UpdateLayoutGroup(assessDamageMessageClone));       
-    }    
+        StartCoroutine(UpdateLayoutGroup(assessDamageMessageClone));
+        StartCoroutine(ScrollToBottom());       
+    }
+    public void TriggerAssessDamageResponse()
+    {
+        Invoke("MakeAssessDamageResponse", 2f);    
+    }
+    public void MakeAssessDamageResponse()
+    {
+        assessDamageMessageClone.SetActive(false);
+        assessDamageResponseClone = Instantiate(assessDamageResponsePrefab);
+        assessDamageResponseClone.transform.SetParent(messagesContainer.transform, false);
+        StartCoroutine(UpdateLayoutGroup(assessDamageResponseClone));
+        StartCoroutine(ScrollToBottom());                  
+    }
 
     // Forces the layout group to update to fix the formatting
     IEnumerator UpdateLayoutGroup(GameObject prefabInstance)
@@ -145,9 +163,13 @@ public class MessagingController : MonoBehaviour
         yield return new WaitForEndOfFrame();
         prefabInstance.SetActive(false);
         prefabInstance.SetActive(true);
-
-        // scrolls to bottom of updated conent
+    }
+    public IEnumerator ScrollToBottom()
+    {
+        while(scrollRect.verticalNormalizedPosition != 0f) {
         scrollRect.verticalNormalizedPosition = Mathf.MoveTowards(scrollRect.verticalNormalizedPosition, 0f, Time.deltaTime * scrollSpeed);
+        yield return null;
+        }
     }
 
     // Start is called before the first frame update
