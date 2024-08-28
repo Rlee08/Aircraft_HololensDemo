@@ -6,8 +6,8 @@ using MixedReality.Toolkit.Examples.Demos;
 
 public class VoiceCommandManager : MonoBehaviour
 {
-    [SerializeField] DictationHandler transcriberDictationHandler;
-    [SerializeField] private GameObject transcriptionDialogue;
+    // [SerializeField] DictationHandler transcriberDictationHandler;
+    // [SerializeField] private GameObject transcriptionDialogue;
     [SerializeField] private GameObject autoCameraScreen;
 
     [SerializeField] private GameObject addButtons;
