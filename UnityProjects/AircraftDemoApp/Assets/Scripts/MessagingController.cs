@@ -12,6 +12,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.ComponentModel;
+using UnityEngine.UI;
 // using UnityEditor.Search;
 
 public class MessagingController : MonoBehaviour
@@ -43,6 +44,8 @@ public class MessagingController : MonoBehaviour
     [SerializeField] private GameObject assessDamageMessagePrefab;
     private GameObject messagePhotoPreview;
     [SerializeField] CameraHandler cameraHandler;
+    [SerializeField] ScrollRect scrollRect;
+    public float scrollSpeed = 2;
     
     // Instantiates a new speech bubble for every new recording
     public void MakeNewMessage()
@@ -97,11 +100,12 @@ public class MessagingController : MonoBehaviour
         messageLeftClone = Instantiate(messageLeftPrefab);
         messageLeftClone.transform.SetParent(messagesContainer.transform, false);
         messageLeftClone.name = "MessageLeft" + ragResponseCount;
-        StartCoroutine(UpdateLayoutGroup(messageLeftClone));
+        // StartCoroutine(UpdateLayoutGroup(messageLeftClone));
 
         //Calls RAGDisplayer to populate the speech bubble with string
         currentMessageLeftClone = GameObject.Find("MessageLeft" + ragResponseCount);
         currentMessageLeftClone.GetComponent<RAGDisplayer>().DisplayRAGMessage(ragText);
+        StartCoroutine(UpdateLayoutGroup(messageLeftClone));
     }
 
     public void MakeFigureResponse()
@@ -141,6 +145,9 @@ public class MessagingController : MonoBehaviour
         yield return new WaitForEndOfFrame();
         prefabInstance.SetActive(false);
         prefabInstance.SetActive(true);
+
+        // scrolls to bottom of updated conent
+        scrollRect.verticalNormalizedPosition = Mathf.MoveTowards(scrollRect.verticalNormalizedPosition, 0f, Time.deltaTime * scrollSpeed);
     }
 
     // Start is called before the first frame update
