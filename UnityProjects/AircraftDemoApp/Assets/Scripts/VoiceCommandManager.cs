@@ -15,6 +15,9 @@ public class VoiceCommandManager : MonoBehaviour
     [SerializeField] private GameObject mainMessenger;
     [SerializeField] private GameObject handMenu;
     [SerializeField] MessagingController messagingController;
+    [SerializeField] private GameObject messageListeningButton;
+    [SerializeField] private GameObject messageRecordButton;
+    [SerializeField] KeyboardManager keyboardManager;
     public bool isListening = false;
 
     // Start is called before the first frame update
@@ -46,6 +49,18 @@ public class VoiceCommandManager : MonoBehaviour
             isListening = false;
             Debug.Log("listening stopped");
         }
+    }
+
+    public void makeNewMessage()
+    {
+        if (mainMessenger.gameObject.activeSelf == true)
+        {
+            messageRecordButton.SetActive(false);
+            messageListeningButton.SetActive(true);
+            messagingController.GetComponent<MessagingController>().RecordNewMessage();
+            keyboardManager.PresentSecondKeyboard();
+        }
+
     }
 
     public void assessDamage()

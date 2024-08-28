@@ -82939,6 +82939,9 @@ MonoBehaviour:
   mainMessenger: {fileID: 925874394}
   handMenu: {fileID: 7020600565697351178}
   messagingController: {fileID: 791348057}
+  messageListeningButton: {fileID: 1756026681}
+  messageRecordButton: {fileID: 931077722}
+  keyboardManager: {fileID: 116473691}
   isListening: 0
 --- !u!4 &2092153908
 Transform:
@@ -82975,6 +82978,18 @@ MonoBehaviour:
         - m_Target: {fileID: 2092153907}
           m_TargetAssemblyTypeName: VoiceCommandManager, Assembly-CSharp
           m_MethodName: startListening
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2092153907}
+          m_TargetAssemblyTypeName: VoiceCommandManager, Assembly-CSharp
+          m_MethodName: makeNewMessage
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
