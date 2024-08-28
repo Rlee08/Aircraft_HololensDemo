@@ -11,6 +11,7 @@ public class CameraHandler : MonoBehaviour
     [SerializeField] private GameObject previewQuad;
     [SerializeField] private GameObject confirmDialogue;
     [SerializeField] AudioSource cameraFlash;
+    public Sprite Photo;
     
     // Start is called before the first frame update
     void Start()
@@ -55,8 +56,15 @@ public class CameraHandler : MonoBehaviour
         confirmDialogue.SetActive(true);
         cameraFlash.Play();
 
-        webcam.Stop();
+        // webcam.Stop();
     }
+
+    // public Sprite TakePhotoToMessage()
+    // {
+    //     image = TakePhoto();
+    //     Sprite.Create(image, new Rect(0.0f, 0.0f, image.width, image.height), new Vector2(0.5f, 0.5f));
+    //     return Photo;
+    // }
 
 
     // Update is called once per frame

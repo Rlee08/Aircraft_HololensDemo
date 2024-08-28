@@ -34158,7 +34158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 211, y: -0.000045776367}
+  m_AnchoredPosition: {x: 211, y: -0.000091552734}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &883306376
@@ -42403,6 +42403,7 @@ MonoBehaviour:
   previewQuad: {fileID: 707372958}
   confirmDialogue: {fileID: 1084234382}
   cameraFlash: {fileID: 1770322999}
+  Photo: {fileID: 0}
 --- !u!114 &1082968224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126971,8 +126972,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 340, y: 127.999985, z: 35.6}
-  m_Center: {x: 0, y: -64.00001, z: 0}
+  m_Size: {x: 340, y: 128, z: 35.6}
+  m_Center: {x: 0, y: -64, z: 0}
 --- !u!114 &9062819528061759498
 MonoBehaviour:
   m_ObjectHideFlags: 0

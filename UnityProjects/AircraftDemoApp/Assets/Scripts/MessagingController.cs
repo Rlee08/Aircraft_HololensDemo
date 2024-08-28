@@ -43,6 +43,7 @@ public class MessagingController : MonoBehaviour
     private GameObject assessDamageMessageClone;
     [SerializeField] private GameObject assessDamageMessagePrefab;
     private GameObject messagePhotoPreview;
+    // private GameObject spriteObject;
     [SerializeField] CameraHandler cameraHandler;
     [SerializeField] ScrollRect scrollRect;
     public float scrollSpeed = 2;
@@ -55,6 +56,7 @@ public class MessagingController : MonoBehaviour
     public string sentText;
     [SerializeField] GameObject textArea;
     [SerializeField] GameObject sendButton;
+    // private SpriteRenderer spriteRenderer;
     
     // Instantiates a new speech bubble for every new recording
     public void MakeNewMessage()
@@ -154,7 +156,18 @@ public class MessagingController : MonoBehaviour
     {
         //Instantiates the assess damage message clone
         assessDamageMessageClone = Instantiate(assessDamageMessagePrefab);
-        assessDamageMessageClone.transform.SetParent(messagesContainer.transform, false);        
+        assessDamageMessageClone.transform.SetParent(messagesContainer.transform, false);
+        
+        // //Gets the photo as sprite from cameraHandler
+        // messagePhotoPreview = cameraHandler.GetComponent<CameraHandler>().TakePhotoToMessage();
+        
+        // //Gets the gameobject to render the sprite
+        // spriteObject = GameObject.FindWithTag("MessagePhotoPreview");
+        
+        // //gets the sprite renderer of the gameobject and sets the sprite as the photo
+        // spriteRenderer = spriteObject.GetComponent<SpriteRenderer>();
+        // spriteRenderer.sprite = messagePhotoPreview;
+
 
         //Gets the renderer component for the messagePhotoPreview
         messagePhotoPreview = GameObject.FindWithTag("MessagePhotoPreview");
@@ -176,7 +189,7 @@ public class MessagingController : MonoBehaviour
     }
     public void TriggerAssessDamageResponse()
     {
-        Invoke("MakeAssessDamageResponse", 2f);    
+        Invoke("MakeAssessDamageResponse", 3f);    
     }
     public void MakeAssessDamageResponse()
     {
@@ -201,7 +214,8 @@ public class MessagingController : MonoBehaviour
     }
     public IEnumerator ScrollToBottom()
     {
-        while(scrollRect.verticalNormalizedPosition != 0f) {
+        while(scrollRect.verticalNormalizedPosition != 0f)
+        {
         scrollRect.verticalNormalizedPosition = Mathf.MoveTowards(scrollRect.verticalNormalizedPosition, 0f, Time.deltaTime * scrollSpeed);
         yield return null;
         }
