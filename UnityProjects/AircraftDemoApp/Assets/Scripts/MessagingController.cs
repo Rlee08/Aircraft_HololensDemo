@@ -48,6 +48,8 @@ public class MessagingController : MonoBehaviour
     public float scrollSpeed = 2;
     [SerializeField] GameObject assessDamageResponsePrefab;
     private GameObject assessDamageResponseClone;
+    [SerializeField] GameObject figureQuestionPrefab;
+    private GameObject figureQuestionClone;
     
     // Instantiates a new speech bubble for every new recording
     public void MakeNewMessage()
@@ -112,6 +114,12 @@ public class MessagingController : MonoBehaviour
         StartCoroutine(ScrollToBottom());
     }
 
+    public void MakeFigureMessage()
+    {
+        figureQuestionClone = Instantiate(figureQuestionPrefab);
+        figureQuestionClone.transform.SetParent(messagesContainer.transform, false);
+        Invoke("MakeFigureResponse", 2.5f);
+    }
     public void MakeFigureResponse()
     {
         figureMessageClone = Instantiate(figureMessagePrefab);

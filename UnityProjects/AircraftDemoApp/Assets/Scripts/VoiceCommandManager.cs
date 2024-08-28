@@ -83,7 +83,7 @@ public class VoiceCommandManager : MonoBehaviour
     public void RetrieveFigure()
     {
         Debug.Log("Retrieve figure");
-        messagingController.MakeFigureResponse();
+        messagingController.MakeFigureMessage();
     }
 
 }

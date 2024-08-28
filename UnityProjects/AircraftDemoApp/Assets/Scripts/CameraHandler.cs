@@ -29,7 +29,7 @@ public class CameraHandler : MonoBehaviour
     public void TriggerPhoto()
     {
         StartCamera();
-        Invoke("TakePhotoToPreview",1f);
+        Invoke("TakePhotoToPreview",3f);
     }
     public Texture2D TakePhoto()
     { 
