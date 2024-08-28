@@ -267,6 +267,7 @@ GameObject:
   - component: {fileID: 7548453606714907848}
   - component: {fileID: 3485677980408009175}
   - component: {fileID: 6876766355960318244}
+  - component: {fileID: 4115016977448773536}
   m_Layer: 5
   m_Name: MessageRight
   m_TagString: Untagged
@@ -368,88 +369,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <OnSpeechRecognizing>k__BackingField:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3109509463965528441}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   <OnSpeechRecognized>k__BackingField:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3109509463965528441}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6876766355960318244}
-        m_TargetAssemblyTypeName: ChatManagerCaller, Assembly-CSharp
-        m_MethodName: GetDictationResult
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6876766355960318244}
-        m_TargetAssemblyTypeName: ChatManagerCaller, Assembly-CSharp
-        m_MethodName: CallOutputDictationResult
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   <OnRecognitionFinished>k__BackingField:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3485677980408009175}
-        m_TargetAssemblyTypeName: MessageButtonController, Assembly-CSharp
-        m_MethodName: UISMSwitchToDefault
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   <OnRecognitionFaulted>k__BackingField:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3485677980408009175}
-        m_TargetAssemblyTypeName: MessageButtonController, Assembly-CSharp
-        m_MethodName: UISMSwitchToDefault
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &3485677980408009175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,7 +386,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9099760246985232146}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 603c67e6e29d0f74094db171ce9c1780, type: 3}
   m_Name: 
@@ -469,8 +398,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9099760246985232146}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab273edcddc462747ba6cbe86317fe3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4115016977448773536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9099760246985232146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558eb0e3a12c38344a3fcec1535fa609, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userMessage: {fileID: 3109509463965528441}

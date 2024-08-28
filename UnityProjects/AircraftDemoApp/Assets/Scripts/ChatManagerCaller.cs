@@ -12,13 +12,13 @@ public class ChatManagerCaller : MonoBehaviour
     {
         thisDictationResult = result;
     }
-    public void CallOutputDictationResult()
-    {
-        chatManager = GameObject.FindWithTag("MessagingController");
-        messagingController = chatManager.GetComponent<MessagingController>();
+    // public void CallOutputDictationResult()
+    // {
+    //     chatManager = GameObject.FindWithTag("MessagingController");
+    //     messagingController = chatManager.GetComponent<MessagingController>();
         
-        messagingController.OutputDictationResult(thisDictationResult);
-    }
+    //     messagingController.OutputDictationResult(thisDictationResult);
+    // }
     
     // Start is called before the first frame update
     void Start()

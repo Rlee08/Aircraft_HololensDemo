@@ -50,6 +50,11 @@ public class MessagingController : MonoBehaviour
     private GameObject assessDamageResponseClone;
     [SerializeField] GameObject figureQuestionPrefab;
     private GameObject figureQuestionClone;
+    [SerializeField] GameObject secondKeyboard;
+    public TextMeshProUGUI message;
+    public string sentText;
+    [SerializeField] GameObject textArea;
+    [SerializeField] GameObject sendButton;
     
     // Instantiates a new speech bubble for every new recording
     public void MakeNewMessage()
@@ -65,32 +70,49 @@ public class MessagingController : MonoBehaviour
     // Calls DictationHandler and starts recognition for this unique Instantiate
     public void RecordNewMessage()
     {
-        currentMessageRightClone = GameObject.Find("MessageRight" + userMessageCount);
+        // currentMessageRightClone = GameObject.Find("MessageRight" + userMessageCount);
         // Debug.Log("found " + currentMessageRightClone);
 
-        currentMessageRightClone.GetComponent<DictationHandler>().StartRecognition();
+        // currentMessageRightClone.GetComponent<DictationHandler>().StartRecognition();
+        secondKeyboard.GetComponent<DictationHandler>().StartRecognition();
+        StartCoroutine(UpdateLayoutGroup(textArea));
         // Debug.Log("recognition should start for " + currentMessageRightClone);
     }
 
     // Stops recognition and returns to listening button back to normal record button
     public void StopRecording()
     {
-        currentMessageRightClone = GameObject.Find("MessageRight" + userMessageCount);
-        currentMessageRightClone.GetComponent<DictationHandler>().StopRecognition();
+        // currentMessageRightClone = GameObject.Find("MessageRight" + userMessageCount);
+        // currentMessageRightClone.GetComponent<DictationHandler>().StopRecognition();
+
+        secondKeyboard.GetComponent<DictationHandler>().StopRecognition();
+        StartCoroutine(UpdateLayoutGroup(textArea));
     }
 
-    // Gets the dictation result into a string and then sends to server
-    public void OutputDictationResult(string text)
-    {   
-        dictationResult = text;
-        Debug.Log(dictationResult);
+
+    public void GetDictationResult(string result)
+    {
+        sentText = result;
+    }
+
+    public void SendDictationResult()
+    {
+        currentMessageRightClone = GameObject.Find("MessageRight" + userMessageCount);
+        currentMessageRightClone.GetComponent<MessageDisplayer>().DisplayUserMessage(sentText);
+        StartCoroutine(UpdateLayoutGroup(currentMessageRightClone));
+        StartCoroutine(ScrollToBottom());        
+    }
+
+    public void OutputDictationResult()
+    {
+        Debug.Log("will send: " + sentText);
 
         // Sends the dictation result to server
         if (stream != null && client.Connected)
         {
-            byte[] message = Encoding.UTF8.GetBytes(dictationResult);
+            byte[] message = Encoding.UTF8.GetBytes(sentText);
             stream.Write(message, 0, message.Length);
-            Debug.Log("Sent input to server: " + dictationResult);
+            Debug.Log("Sent input to server: " + sentText);
         }
     }
 
@@ -110,7 +132,7 @@ public class MessagingController : MonoBehaviour
         //Calls RAGDisplayer to populate the speech bubble with string
         currentMessageLeftClone = GameObject.Find("MessageLeft" + ragResponseCount);
         currentMessageLeftClone.GetComponent<RAGDisplayer>().DisplayRAGMessage(ragText);
-        StartCoroutine(UpdateLayoutGroup(messageLeftClone));
+        StartCoroutine(UpdateLayoutGroup(currentMessageLeftClone));
         StartCoroutine(ScrollToBottom());
     }
 
@@ -163,6 +185,11 @@ public class MessagingController : MonoBehaviour
         assessDamageResponseClone.transform.SetParent(messagesContainer.transform, false);
         StartCoroutine(UpdateLayoutGroup(assessDamageResponseClone));
         StartCoroutine(ScrollToBottom());                  
+    }
+
+    public void UpdateTextArea()
+    {
+        StartCoroutine(UpdateLayoutGroup(textArea));
     }
 
     // Forces the layout group to update to fix the formatting
