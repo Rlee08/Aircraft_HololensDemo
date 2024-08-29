@@ -56,7 +56,7 @@ public class CameraHandler : MonoBehaviour
         confirmDialogue.SetActive(true);
         cameraFlash.Play();
 
-        // webcam.Stop();
+        webcam.Stop();
     }
 
     // public Sprite TakePhotoToMessage()
