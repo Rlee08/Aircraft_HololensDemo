@@ -185,15 +185,15 @@ public class MessagingController : MonoBehaviour
 
         //Calls force update script
         StartCoroutine(UpdateLayoutGroup(assessDamageMessageClone));
-        StartCoroutine(ScrollToBottom());       
+        // StartCoroutine(ScrollToBottom());       
     }
     public void TriggerAssessDamageResponse()
     {
-        Invoke("MakeAssessDamageResponse", 3f);    
+        Invoke("MakeAssessDamageResponse", 4f);    
     }
     public void MakeAssessDamageResponse()
     {
-        assessDamageMessageClone.SetActive(false);
+        messagePhotoPreview.SetActive(false);
         assessDamageResponseClone = Instantiate(assessDamageResponsePrefab);
         assessDamageResponseClone.transform.SetParent(messagesContainer.transform, false);
         StartCoroutine(UpdateLayoutGroup(assessDamageResponseClone));

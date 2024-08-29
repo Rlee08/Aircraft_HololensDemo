@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using MixedReality.Toolkit.UX.Experimental;
-using UnityEditor.Overlays;
+// using UnityEditor.Overlays;
 
 
 public class KeyboardManager : MonoBehaviour
@@ -24,7 +24,10 @@ public class KeyboardManager : MonoBehaviour
         secondKeyboard.GetComponent<NonNativeKeyboard>().Open(NonNativeKeyboard.LayoutType.Alpha);
     }
 
-
+    public void ClearSecondKeyboard()
+    {
+        keyboardText.text = null;        
+    }
 
     public void CloseSecondKeyboard()
     {
