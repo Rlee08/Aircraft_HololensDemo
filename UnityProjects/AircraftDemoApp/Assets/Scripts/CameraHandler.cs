@@ -56,6 +56,11 @@ public class CameraHandler : MonoBehaviour
         confirmDialogue.SetActive(true);
         cameraFlash.Play();
 
+        Invoke("StopCamera", 1f);
+    }
+
+    public void StopCamera()
+    {
         webcam.Stop();
     }
 

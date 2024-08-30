@@ -183,7 +183,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: What fuselage skin panels is repair 1 applicable to?
+  m_text: Retrieve a figure of the fuselage skin areas
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 483389ef3209c484687a5c92fb4e22cb, type: 2}
   m_sharedMaterial: {fileID: 7264305125847348291, guid: 483389ef3209c484687a5c92fb4e22cb, type: 2}
